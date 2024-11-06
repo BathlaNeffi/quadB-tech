@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stored Crypto Data</title>
+</head>
+<body>
+    <h1>Top 10 Crypto Data</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Price</th>
+                <th>Buy Price</th>
+                <th>Sell Price</th>
+                <th>Low Price</th>
+                <th>High Price</th>
+                <th>At Price</th>
+                <th>Open Price</th>
+                <th>Volume</th>
+                <th>Base Unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cryptoData.forEach(crypto => { %>
+                <tr>
+                    <td><%= crypto.name %></td>
+                    <td><%= crypto.last %></td>
+                    <td><%= crypto.buy %></td>
+                    <td><%= crypto.sell %></td>
+                    <td><%= crypto.low %></td>
+                    <td><%= crypto.high %></td>
+                    <td><%= crypto.at %></td>
+                    <td><%= crypto.open %></td>
+                    <td><%= crypto.volume %></td>
+                    <td><%= crypto.base_unit %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
