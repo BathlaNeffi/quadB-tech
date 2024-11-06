@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 // const MONGO_URI="mongodb+srv://new_user:044outkQcYXdpFRA@cluster1.iw3lm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1";
 // const MONGO_URI = "mongodb+srv://new_user:044outkQcYXdpFRA@cluster1.iw3lm.mongodb.net/crypto-app?retryWrites=true&w=majority";
 
-const MONGO_URI="mongodb://new_user:044outkQcYXdpFRA@cluster1-shard-00-00.iw3lm.mongodb.net:27017,cluster1-shard-00-01.iw3lm.mongodb.net:27017,cluster1-shard-00-02.iw3lm.mongodb.net:27017/?ssl=true&replicaSet=atlas-v86fqn-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster1";
+const MONGO_URI=`mongodb://new_user:${process.env.passwordDb}@cluster1-shard-00-00.iw3lm.mongodb.net:27017,cluster1-shard-00-01.iw3lm.mongodb.net:27017,cluster1-shard-00-02.iw3lm.mongodb.net:27017/?ssl=true&replicaSet=atlas-v86fqn-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster1`;
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
